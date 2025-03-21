@@ -30,6 +30,31 @@ def sum_times(t1, t2):
         total.minute = total.minute % 60    # Update minutes
     return total
 
+def change_time(t, seconds):
+    t.second += seconds
+
+    # Positive seconds
+    while t.second >= 60:
+            t.second -= 60
+            t.minute +=1
+
+    # Negative seconds
+    while t.second < 0:
+        t.second += 60
+        t.minute -= 1
+
+    # Positive minutes
+    while t.minute >= 60:
+            t.minute -= 60
+            t.hour += 1
+
+    # Negative minutes
+    while t.minute < 0:
+        t.minute += 60
+        t.hour -= 1
+            
+    return None
+
 def valid_time(t):
     """check for the validity of the time object attributes:
         24 > hour > 0, 60 > minute > 0, 60 > second > 0 """
